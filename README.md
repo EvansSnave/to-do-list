@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <h3><b>📚 Awesome Books 📚</b></h3>
+  <h3><b>📚 To do list📚</b></h3>
 
 </div>
 
@@ -30,13 +30,14 @@
 
 # 📖 Awesome Books <a name="about-project"></a>
 
-> This project is about building a basic website that allows users to add/remove books from a list.
+> This project is about implementing webpack.
 
 
 ## 🛠 Built With <a name="built-with"></a>
 - HTML
 - CSS
 - Javascript
+- Webpack
 
 <!-- Features -->
 
@@ -102,12 +103,6 @@ To run the project, execute the following command: open index.html as normal fil
 - GitHub: [EvansSnave](https://github.com/EvansSnave)
 - Twitter: [Kroja13](https://twitter.com/Kroja13)
 - LinkedIn: [Kevin Cruz](https://www.linkedin.com/in/kevin-cruz-25159a201/)
-
-👤 **Rudi Carrillo**
-
-- GitHub: [Rudi Carrillo](https://github.com/rudicarrilloypr)
-- Twitter: [Argo](https://twitter.com/onlyargo
-- LinkedIn: [Rudi Carrillo](https://www.linkedin.com/in/rudi-carrillo/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
