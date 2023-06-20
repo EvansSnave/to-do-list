@@ -1,4 +1,4 @@
-import '/src/style.css';
+/* eslint-disable function-paren-newline */
 const tasks = [
   {
     description: 'Wash the dishes',
@@ -19,12 +19,11 @@ const tasks = [
 
 const addTask = () => {
   const toDoList = document.querySelector('.to-do-list');
-  tasks.forEach( (task, indexL) => {
-    const taskHtml = `<label><input type="checkbox" class="task-check">${task.description}</label>`
+  tasks.forEach((task, indexL) => {
+    const taskHtml = `<label><input type="checkbox" class="task-check">${task.description}</label>`;
     task.index = indexL;
     toDoList.insertAdjacentHTML('beforeend', taskHtml);
-    console.log(task.index);
-    }
+  },
   );
 };
 
