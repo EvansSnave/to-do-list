@@ -4,10 +4,14 @@
     "es6": true,
     "jest": true
   },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaVersion": 2018,
-    "sourceType": "module"
+    "sourceType": "module",
+    "requireConfigFile": false,
+    "babelOptions": {
+      "plugins": [
+        "@babel/plugin-syntax-import-assertions"]
   },
   "extends": ["airbnb-base"],
   "rules": {
@@ -22,4 +26,5 @@
     "dist/",
     "build/"
   ]
+  }
 }
