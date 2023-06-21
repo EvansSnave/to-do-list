@@ -1,4 +1,6 @@
 /* eslint-disable function-paren-newline */
+import sheet from '/src/style.css' assert { type: 'css' };
+
 const tasks = [
   {
     description: 'Wash the dishes',
