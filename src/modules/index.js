@@ -22,7 +22,7 @@ const tasks = [
 const addTask = () => {
   const toDoList = document.querySelector('.to-do-list');
   tasks.forEach((task, indexL) => {
-    const taskHtml = `<label><input type="checkbox" class="task-check">${task.description}</label>`;
+    const taskHtml = `<label><input type="checkbox" class="task-check">${task.description}<img class="dots" src="/src/assets/dots.png"></label>`;
     task.index = indexL;
     toDoList.insertAdjacentHTML('beforeend', taskHtml);
   },

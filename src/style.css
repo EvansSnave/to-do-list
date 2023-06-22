@@ -14,7 +14,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #545862;
+  background-color: #f6f6f6;
 }
 
 a {
@@ -33,12 +33,16 @@ li {
 .container {
   display: grid;
   grid-template-rows: repeat(4, 0fr);
-  padding: calc(2vw + 1px);
   margin: calc(2vw + 1px);
   row-gap: calc(1vw + 1px);
   width: calc(60vw + 1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px hsl(0deg 0% 0% / 43%);
   background-color: #fff;
+}
+
+.dots {
+  width: calc(1vw + 1px);
+  float: right;
 }
 
 .to-do-list {
@@ -59,4 +63,9 @@ li {
 .add-task,
 .clear-completed {
   margin: calc(1.5vw + 1px);
+}
+
+.clear-completed {
+  margin: 0;
+  padding: calc(1.5vw + 1px);
 }
