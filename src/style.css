@@ -9,6 +9,10 @@
   font-size: calc(1.5vh + 1px);
 }
 
+textarea:focus, input:focus{
+  outline: none;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -40,9 +44,13 @@ li {
   background-color: #fff;
 }
 
-.dots {
+img {
   width: calc(1vw + 1px);
   float: right;
+}
+
+img[class^="trash"] {
+  display: none;
 }
 
 .to-do-list {
@@ -68,4 +76,8 @@ li {
 .clear-completed {
   margin: 0;
   padding: calc(1.5vw + 1px);
+}
+
+.task-value {
+  width: calc(50vw + 1px);
 }
