@@ -56,7 +56,8 @@ const input = document.querySelector('.add-task');
 
 input.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
-    const text = document.querySelector('.add-task').value;
-    addTask(text);
+    let text = document.querySelector('.add-task');
+    addTask(text.value);
+    text.value = '';
   };
 });
