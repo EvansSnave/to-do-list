@@ -31,8 +31,6 @@ const addTask = (task) => {
   toDoList.appendChild(label);
   const newTask = new TaskToDo(inputUser.value, tasks.length);
   tasks.push(newTask);
-  console.log(newTask)
-  console.log(tasks)
   inputUser.addEventListener('focusin', () => {
     dots.classList.add('none');
     dots.classList.remove('block');
@@ -48,10 +46,10 @@ const addTask = (task) => {
   trash.addEventListener('mousedown', () => {
     label.remove();
     tasks.splice(tasks.indexOf(task), 1);
-  })
+  });
   inputUser.addEventListener('focusout', () => {
     newTask.description = inputUser.value;
-  })
+  });
 };
 
 const input = document.querySelector('.add-task');
@@ -60,5 +58,5 @@ input.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
     const text = document.querySelector('.add-task').value;
     addTask(text);
-  }
+  };
 });
