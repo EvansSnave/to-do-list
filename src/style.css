@@ -49,7 +49,7 @@ img {
   float: right;
 }
 
-img[class^="trash"] {
+.trash {
   display: none;
 }
 
@@ -79,5 +79,13 @@ img[class^="trash"] {
 }
 
 .task-value {
-  width: calc(50vw + 1px);
+  width: calc(52vw + 1px);
+}
+
+.none {
+  display: none;
+}
+
+.block {
+  display: block;
 }
