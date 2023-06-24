@@ -9,7 +9,8 @@
   font-size: calc(1.5vh + 1px);
 }
 
-textarea:focus, input:focus{
+textarea:focus,
+input:focus {
   outline: none;
 }
 
