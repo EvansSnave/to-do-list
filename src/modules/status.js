@@ -1,4 +1,5 @@
-import { updateIndex } from "./localStorage";
+import { updateIndex } from './localStorage';
+import { updateStatus } from './index.js'
 
 export const status = (input, object, arr) => {
   input.addEventListener('change', function() {

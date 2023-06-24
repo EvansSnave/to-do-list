@@ -35,11 +35,6 @@ export const updateIndex = (arr) => {
   localStorage.setItem('ObjectSaved', JSON.stringify(savedData));
 };
 
-// export const updateStatus = (arr) => {
-//   if (localStorage.getItem('ObjectSaved') == null) return;
-
-// };
-
 export const getData = () => {
   if (localStorage.getItem('ObjectSaved') != null) {
     const data = JSON.parse(localStorage.getItem('ObjectSaved'));
