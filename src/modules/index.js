@@ -1,10 +1,12 @@
 /* eslint-disable function-paren-newline */
 import sheet from '/src/style.css' assert { type: 'css' };
 import { TaskToDo } from './tasks.js';
+import display from './display.js';
+import { saveData, removeData, updateIndex, updateInput, getData } from './localStorage.js';
 
 const tasks = [];
 
-const addTask = (task) => {
+export const addTask = (task) => {
   const toDoList = document.querySelector('.to-do-list');
   const label = document.createElement('label');
   const input = document.createElement('input');
@@ -41,74 +43,18 @@ const addTask = (task) => {
     label.remove();
     tasks.splice(tasks.indexOf(newTask), 1);
     removeData(newTask.index);
-    updateIndex();
+    updateIndex(tasks);
     console.log(tasks);
   });
   inputUser.addEventListener('keyup', () => {
     newTask.description = inputUser.value;
     updateInput(newTask);
   });
-  saveData(newTask);
+  saveData(newTask, tasks);
   console.log(tasks);
 };
 
-const display = () => {
-  const input = document.querySelector('.add-task');
-  input.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-      let text = document.querySelector('.add-task');
-      if (text.value === '') return;
-      addTask(text.value);
-      text.value = '';
-    };
-  });
-};
-
 display();
-
-const saveData = (taskData) => {
-  if (localStorage.getItem('ObjectSaved') == null) localStorage.setItem('ObjectSaved', '[]');;
-  const savedData = JSON.parse(localStorage.getItem('ObjectSaved'));
-  if (savedData.length < tasks.length) savedData.push(taskData);
-  localStorage.setItem('ObjectSaved', JSON.stringify(savedData));
-};
-
-const removeData = (index) => {
-  if (localStorage.getItem('ObjectSaved') == null) return;
-  const savedData = JSON.parse(localStorage.getItem('ObjectSaved'));
-  savedData.splice(index, 1);
-  localStorage.setItem('ObjectSaved', JSON.stringify(savedData));
-};
-
-const updateInput = (object) => {
-  if (localStorage.getItem('ObjectSaved') == null) return;
-  const savedData = JSON.parse(localStorage.getItem('ObjectSaved'));
-  const OldObject = savedData[object.index];
-  OldObject.description = object.description;
-  localStorage.setItem('ObjectSaved', JSON.stringify(savedData));
-};
-
-const updateIndex = () => {
-  if (localStorage.getItem('ObjectSaved') == null) return;
-  const savedData = JSON.parse(localStorage.getItem('ObjectSaved'));
-  tasks.forEach( (element, ind) => {
-    element.index = ind;
-  });
-  for (let i = 0; i < tasks.length; i++){
-    savedData[i].index = i;
-  };
-  localStorage.setItem('ObjectSaved', JSON.stringify(savedData));
-};
-
-const getData = () => {
-  if (localStorage.getItem('ObjectSaved') != null) {
-    const data = JSON.parse(localStorage.getItem('ObjectSaved'));
-    data.forEach(element => {
-      const oldTask = element.description;
-      addTask(oldTask);
-    });
-  };
-};
 
 document.addEventListener('DOMContentLoaded', () => {
   getData();
