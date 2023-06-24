@@ -1,16 +1,6 @@
 /* eslint-disable function-paren-newline */
 import sheet from '/src/style.css' assert { type: 'css' };
-
-class TaskToDo {
-  constructor (description, index, completed = false) {
-    document.querySelector('form').addEventListener('submit', (e) => {
-      e.preventDefault();
-    });
-    this.description = description;
-    this.completed = completed;
-    this.index = index;
-  };
-};
+import { TaskToDo } from './tasks.js';
 
 const tasks = [];
 
@@ -32,8 +22,9 @@ const addTask = (task) => {
   inputUser.value = `${task}`;
   label.append(input, inputUser, dots, trash);
   toDoList.appendChild(label);
-  const newTask = new TaskToDo(inputUser.value, tasks.length);
+  const newTask = new TaskToDo(inputUser.value, 0);
   tasks.push(newTask);
+  newTask.index = tasks.indexOf(newTask);
   inputUser.addEventListener('focusin', () => {
     dots.classList.add('none');
     dots.classList.remove('block');
@@ -48,14 +39,17 @@ const addTask = (task) => {
   });
   trash.addEventListener('mousedown', () => {
     label.remove();
-    tasks.splice(tasks.indexOf(task), 1);
+    tasks.splice(tasks.indexOf(newTask), 1);
     removeData(newTask.index);
+    updateIndex();
+    console.log(tasks);
   });
   inputUser.addEventListener('keyup', () => {
     newTask.description = inputUser.value;
     updateInput(newTask);
   });
   saveData(newTask);
+  console.log(tasks);
 };
 
 const display = () => {
@@ -73,7 +67,7 @@ const display = () => {
 display();
 
 const saveData = (taskData) => {
-  if (localStorage.getItem('ObjectSaved') == null) localStorage.setItem('ObjectSaved', '[]');
+  if (localStorage.getItem('ObjectSaved') == null) localStorage.setItem('ObjectSaved', '[]');;
   const savedData = JSON.parse(localStorage.getItem('ObjectSaved'));
   if (savedData.length < tasks.length) savedData.push(taskData);
   localStorage.setItem('ObjectSaved', JSON.stringify(savedData));
@@ -84,7 +78,7 @@ const removeData = (index) => {
   const savedData = JSON.parse(localStorage.getItem('ObjectSaved'));
   savedData.splice(index, 1);
   localStorage.setItem('ObjectSaved', JSON.stringify(savedData));
-}
+};
 
 const updateInput = (object) => {
   if (localStorage.getItem('ObjectSaved') == null) return;
@@ -92,7 +86,19 @@ const updateInput = (object) => {
   const OldObject = savedData[object.index];
   OldObject.description = object.description;
   localStorage.setItem('ObjectSaved', JSON.stringify(savedData));
-}
+};
+
+const updateIndex = () => {
+  if (localStorage.getItem('ObjectSaved') == null) return;
+  const savedData = JSON.parse(localStorage.getItem('ObjectSaved'));
+  tasks.forEach( (element, ind) => {
+    element.index = ind;
+  });
+  for (let i = 0; i < tasks.length; i++){
+    savedData[i].index = i;
+  };
+  localStorage.setItem('ObjectSaved', JSON.stringify(savedData));
+};
 
 const getData = () => {
   if (localStorage.getItem('ObjectSaved') != null) {
@@ -100,7 +106,7 @@ const getData = () => {
     data.forEach(element => {
       const oldTask = element.description;
       addTask(oldTask);
-    })
+    });
   };
 };
 
