@@ -1,4 +1,92 @@
-.hello {
-  color: red;
-  background: url('./img.png');
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
+  color: #545862;
+  font-weight: 400;
+  border: none;
+  font-size: calc(1.5vh + 1px);
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f6f6f6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+.add-task {
+  font-style: italic;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: repeat(4, 0fr);
+  margin: calc(2vw + 1px);
+  row-gap: calc(1vw + 1px);
+  width: calc(60vw + 1px);
+  box-shadow: 0 2px 8px hsl(0deg 0% 0% / 43%);
+  background-color: #fff;
+}
+
+img {
+  width: calc(1vw + 1px);
+  float: right;
+}
+
+.trash {
+  display: none;
+}
+
+.to-do-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.to-do-list > * {
+  margin: calc(1.5vw + 1px);
+}
+
+.task-check {
+  margin-right: calc(2vw + 1px);
+}
+
+.demo,
+.add-task,
+.clear-completed {
+  margin: calc(1.5vw + 1px);
+}
+
+.clear-completed {
+  margin: 0;
+  padding: calc(1.5vw + 1px);
+}
+
+.task-value {
+  width: calc(52vw + 1px);
+}
+
+.none {
+  display: none;
+}
+
+.block {
+  display: block;
 }
