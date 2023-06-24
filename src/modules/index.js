@@ -3,6 +3,8 @@ import sheet from '/src/style.css' assert { type: 'css' };
 import { TaskToDo } from './tasks.js';
 import display from './display.js';
 import { saveData, removeData, updateIndex, updateInput, getData } from './localStorage.js';
+import trashI from '/src/assets/trash.png';
+import dotsI from '/src/assets/dots.png';
 
 const tasks = [];
 
@@ -13,8 +15,8 @@ export const addTask = (task) => {
   const inputUser = document.createElement('input');
   const dots = document.createElement('img');
   const trash = document.createElement('img');
-  dots.src = '/src/assets/dots.png';
-  trash.src = '/src/assets/trash.png';
+  dots.src = dotsI;
+  trash.src = trashI;
   input.type = 'checkbox';
   dots.classList.add('dots');
   trash.classList.add('trash');
