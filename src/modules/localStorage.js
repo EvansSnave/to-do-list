@@ -30,9 +30,15 @@ export const updateIndex = (arr) => {
   });
   for (let i = 0; i < arr.length; i++){
     savedData[i].index = i;
+    savedData[i].completed = arr[i].completed;
   };
   localStorage.setItem('ObjectSaved', JSON.stringify(savedData));
 };
+
+// export const updateStatus = (arr) => {
+//   if (localStorage.getItem('ObjectSaved') == null) return;
+
+// };
 
 export const getData = () => {
   if (localStorage.getItem('ObjectSaved') != null) {

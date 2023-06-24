@@ -5,6 +5,7 @@ import display from './display.js';
 import { saveData, removeData, updateIndex, updateInput, getData } from './localStorage.js';
 import trashI from '/src/assets/trash.png';
 import dotsI from '/src/assets/dots.png';
+import { status } from './status.js';
 
 const tasks = [];
 
@@ -53,6 +54,7 @@ export const addTask = (task) => {
     updateInput(newTask);
   });
   saveData(newTask, tasks);
+  status(input, newTask, tasks);
   console.log(tasks);
 };
 
