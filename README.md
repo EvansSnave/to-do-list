@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <h3><b>📚 To do list📚</b></h3>
+  <h3><b>📚To do list📚</b></h3>
 
 </div>
 
@@ -30,7 +30,7 @@
 
 # 📖 Awesome Books <a name="about-project"></a>
 
-> This project is about implementing webpack.
+> This project is about a list of tasks to do where the user will be able to add, remove and edit his tasks. All his data will be in local storage.
 
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -45,7 +45,7 @@
 
 - Add linters to repository
 - Use of GitFlow
-- Add README file
+- Webpack server
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -90,7 +90,7 @@ Install this project with: npm
 
 ### Usage
 
-To run the project, execute the following command: open index.html as normal file or using Live Server
+To run the project, execute the following command: npm start to go to webpack server
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
