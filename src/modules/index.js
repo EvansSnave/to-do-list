@@ -53,19 +53,19 @@ export const addTask = (task) => {
   });
   saveData(newTask, tasks);
   status(input, newTask, tasks);
-  console.log(tasks);
 };
 
 display();
 
 export const updateStatus = (arr) => {
   const savedData = JSON.parse(localStorage.getItem('ObjectSaved'));
-  const completed = savedData.filter( task => task.completed === true);
-  completed.forEach(element => {
-    let objectsChecked = arr[element.index];
+  arr.forEach(element => {
+    const current = savedData[element.index];
+    if (current == undefined) return;
+    element.completed = current.completed;
     const check = document.getElementsByClassName('task-check');
-    const html = check[objectsChecked.index];
-    html.checked = true;
+    const html = check[current.index];
+    html.checked = current.completed;
   });
 };
 
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateIndex(tasks);
   getData();
   clearCompleted(removeButton, tasks);
-  // updateStatus(tasks);
+  updateStatus(tasks);
 });
 
 const form = document.querySelector('form');

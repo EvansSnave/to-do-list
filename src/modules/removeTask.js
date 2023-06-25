@@ -5,5 +5,4 @@ export const removeTask = (element, arr, obj) => {
   arr.splice(arr.indexOf(obj), 1);
   removeData(obj.index);
   updateIndex(arr);
-  console.log(arr);
 };

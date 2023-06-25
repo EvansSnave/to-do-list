@@ -27,11 +27,9 @@ export const updateIndex = (arr) => {
   const savedData = JSON.parse(localStorage.getItem('ObjectSaved'));
   arr.forEach( (element, ind) => {
     element.index = ind;
+    savedData[ind].index = ind;
+    savedData[ind].completed = element.completed;
   });
-  for (let i = 0; i < arr.length; i++){
-    savedData[i].index = i;
-    savedData[i].completed = arr[i].completed;
-  };
   localStorage.setItem('ObjectSaved', JSON.stringify(savedData));
 };
 
